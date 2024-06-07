@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\JackCompiler">
+      <UniqueIdentifier>{8a51070a-3edd-4ba0-8a6f-85727466e9c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\JackCompiler\Utility">
+      <UniqueIdentifier>{1b2f6448-9424-428f-8531-e591a675bcd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tests">
+      <UniqueIdentifier>{a2086a57-018a-4edd-9800-78bd51ed56b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tests\ArrayTest">
+      <UniqueIdentifier>{290d4e3b-1a98-4e0a-9d91-e4d47c02f72b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tests\ExpressionLessSquare">
+      <UniqueIdentifier>{73a76a6b-09ea-4265-9e27-a9ce4ab65042}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tests\Square">
+      <UniqueIdentifier>{5d54d134-ccac-4db5-bb7c-ccfc553beaf0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="JackAnalyzer.cpp">
+      <Filter>Source Files\JackCompiler</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Utility.h">
+      <Filter>Source Files\JackCompiler\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="JackTokenizer.h">
+      <Filter>Source Files\JackCompiler</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tests\Square\SquareGame.jack">
+      <Filter>Source Files\Tests\Square</Filter>
+    </None>
+    <None Include="Tests\Square\Square.jack">
+      <Filter>Source Files\Tests\Square</Filter>
+    </None>
+    <None Include="Tests\Square\Main.jack">
+      <Filter>Source Files\Tests\Square</Filter>
+    </None>
+    <None Include="Tests\ArrayTest\Main.jack">
+      <Filter>Source Files\Tests\ArrayTest</Filter>
+    </None>
+    <None Include="Tests\ExpressionLessSquare\Main.jack">
+      <Filter>Source Files\Tests\ExpressionLessSquare</Filter>
+    </None>
+    <None Include="Tests\ExpressionLessSquare\Square.jack">
+      <Filter>Source Files\Tests\ExpressionLessSquare</Filter>
+    </None>
+    <None Include="Tests\ExpressionLessSquare\SquareGame.jack">
+      <Filter>Source Files\Tests\ExpressionLessSquare</Filter>
+    </None>
+  </ItemGroup>
+</Project>
