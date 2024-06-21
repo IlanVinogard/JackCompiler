@@ -1,9 +1,10 @@
-#pragma once
-#include <iostream>
+﻿#include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
-#include "../Compiler/JackTokenizer.h"
+#include <stdexcept>
+#include "../Compiler/JackCompiler/Utility/Utility.h"
+#include "Utility.h"
 
 using namespace std;
 
@@ -24,22 +25,28 @@ public:
             throw runtime_error("Failed to open output file.");
         }
 
-        CodeWriter codeWriter(output);
+        XmlTokenizer xmlTokenizer(output);
 
         bool advComment = false;
         string line;
+        output << "<tokens>" << endl;
+
         while (getline(input, line)) {
             line = Parser::removeComments(line);
             if (Parser::isNotCommentLine(line, advComment)) {
                 try {
                     string validLine = Parser::cleanAndValidateLine(line);
-                    // continue code.
+                    if (!validLine.empty()) {
+                        xmlTokenizer.xmlTokenizer(validLine);
+                    }
                 }
                 catch (const runtime_error& e) {
                     cerr << "Error: " << e.what() << endl;
                 }
             }
         }
+
+        output << "</tokens>" << endl;
 
         input.close();
         output.close();

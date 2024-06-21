@@ -31,6 +31,9 @@
     <Filter Include="Source Files\Tests\Square">
       <UniqueIdentifier>{5d54d134-ccac-4db5-bb7c-ccfc553beaf0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Result">
+      <UniqueIdentifier>{73321061-d2b8-499e-a2f6-168bca2867db}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JackAnalyzer.cpp">
@@ -67,5 +70,10 @@
     <None Include="Tests\ExpressionLessSquare\SquareGame.jack">
       <Filter>Source Files\Tests\ExpressionLessSquare</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Tests\ArrayTest\Main.jack.xml">
+      <Filter>Source Files\Result</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

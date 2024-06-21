@@ -1,8 +1,10 @@
 #pragma once
+
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
+#include <stdexcept>
 #include "../Compiler/Utility.h"
 
 using namespace std;
@@ -17,14 +19,14 @@ public:
             cerr << "Error opening input file: " << inputPath << endl;
             throw runtime_error("Failed to open input file.");
         }
-
         ofstream output(outputPath);
         if (!output.is_open()) {
             cerr << "Error opening output file: " << outputPath << endl;
             throw runtime_error("Failed to open output file.");
         }
 
-        CodeWriter codeWriter(output);
+
+        XmlTokenizer xmlTokenizer(output);
 
         bool advComment = false;
         string line;
@@ -33,7 +35,7 @@ public:
             if (Parser::isNotCommentLine(line, advComment)) {
                 try {
                     string validLine = Parser::cleanAndValidateLine(line);
-                    // continue code.
+                    xmlTokenizer.xmlTokenizer(validLine);
                 }
                 catch (const runtime_error& e) {
                     cerr << "Error: " << e.what() << endl;

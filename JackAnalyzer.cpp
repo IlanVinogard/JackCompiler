@@ -1,6 +1,6 @@
 #include <iostream>
-#include "../Compiler/JackCompiler/Utility/Utility.h"
-#include "../Compiler/JackTokenizer.h"
+#include "../Compiler/JackCompiler/JackTokenizer.h"
+#include "../Compiler/Utility.h"
 
 int main() {
     try {
@@ -9,14 +9,14 @@ int main() {
 
             string directoryPath = File::askDirectoryPath();
 
-            // check for valid directory and clear console.
+            // Check for valid directory and clear console.
             bool isValidDir = File::isValidDirectory(directoryPath);
             Ui::clear();
 
-            // if not valid directory force user to re-enter.
+            // If not valid directory, force user to re-enter.
             while (!isValidDir) {
                 Ui::uiLogo();
-                cout << "Invalid directory!" << endl;
+                std::cout << "Invalid directory!" << std::endl;
                 directoryPath = File::askDirectoryPath();
                 isValidDir = File::isValidDirectory(directoryPath);
                 Ui::clear();
@@ -25,31 +25,32 @@ int main() {
             vector<string> jackFiles = File::getJackFiles(directoryPath);
 
             if (jackFiles.empty()) {
-                cerr << "No .jack files found in the directory!" << endl;
+                std::cerr << "No .jack files found in the directory!" << std::endl;
                 continue;
             }
 
             JackTokenizer jackTokenizer;
 
             try {
-                cout << "Files successfully opened" << endl;
+                std::cout << "Files successfully opened" << std::endl;
 
                 for (const auto& file : jackFiles) {
                     string xmlFileName = file + ".xml";
 
                     // Converting each .jack file to corresponding .xml file
+                    std::cout << "Converting " << file << " to " << xmlFileName << std::endl;
                     jackTokenizer.convertFile(file, xmlFileName);
 
-                    cout << "Finished converting " << file << " to " << xmlFileName << "!" << endl;
+                    std::cout << "Finished converting " << file << " to " << xmlFileName << "!" << std::endl;
                 }
             }
-            catch (const runtime_error& e) {
-                cerr << "Error during translating: " << e.what() << endl;
+            catch (const std::runtime_error& e) {
+                std::cerr << "Error during translating: " << e.what() << std::endl;
             }
         }
     }
-    catch (const exception& e) {
-        cerr << "Unhandled exception: " << e.what() << '\n';
+    catch (const std::exception& e) {
+        std::cerr << "Unhandled exception: " << e.what() << '\n';
         return 1;
     }
 
