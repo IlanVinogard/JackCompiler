@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../Compiler/JackCompiler/JackTokenizer.h"
+#include "../Compiler/JackTokenizer.h"
 #include "../Compiler/Utility.h"
 
 int main() {

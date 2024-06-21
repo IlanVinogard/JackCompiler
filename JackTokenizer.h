@@ -3,9 +3,7 @@
 #include <string>
 #include <vector>
 #include <stdexcept>
-#include "../Compiler/JackCompiler/Utility/Utility.h"
-#include "Utility.h"
-
+#include "../Compiler/Utility.h"
 using namespace std;
 
 class JackTokenizer {
@@ -24,20 +22,23 @@ public:
             cerr << "Error opening output file: " << outputPath << endl;
             throw runtime_error("Failed to open output file.");
         }
+        cout << "Success open file!" << endl;
 
-        XmlTokenizer xmlTokenizer(output);
+        XmlTokenizer xmltokenizer(output);
+
+        cout << "created Token xml" << endl;
 
         bool advComment = false;
         string line;
         output << "<tokens>" << endl;
-
+        
         while (getline(input, line)) {
             line = Parser::removeComments(line);
             if (Parser::isNotCommentLine(line, advComment)) {
                 try {
                     string validLine = Parser::cleanAndValidateLine(line);
                     if (!validLine.empty()) {
-                        xmlTokenizer.xmlTokenizer(validLine);
+                        xmltokenizer.xmlTokenizer(validLine);
                     }
                 }
                 catch (const runtime_error& e) {
