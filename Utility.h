@@ -124,6 +124,8 @@ public:
         }
         return true;
     }
+
+
 };
 
 class XmlTokenizer {

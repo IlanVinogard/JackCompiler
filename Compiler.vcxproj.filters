@@ -47,6 +47,9 @@
     <ClInclude Include="JackTokenizer.h">
       <Filter>Source Files\JackCompiler</Filter>
     </ClInclude>
+    <ClInclude Include="CompilationEngine.h">
+      <Filter>Source Files\JackCompiler</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Tests\Square\SquareGame.jack">
@@ -72,7 +75,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="Tests\ArrayTest\Main.jack.xml">
+    <Xml Include="Tests\ArrayTest\Main.xml">
       <Filter>Source Files\Result</Filter>
     </Xml>
   </ItemGroup>

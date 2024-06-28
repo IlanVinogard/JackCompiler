@@ -1,19 +1,21 @@
 #include <iostream>
-#include "../Compiler/JackTokenizer.h"
+#include <vector>
+#include <filesystem>
 #include "../Compiler/Utility.h"
+#include "../Compiler/JackTokenizer.h"
 
 int main() {
     try {
         while (true) {
             Ui::uiLogo();
 
-            string directoryPath = File::askDirectoryPath();
+            std::string directoryPath = File::askDirectoryPath();
 
             // Check for valid directory and clear console.
             bool isValidDir = File::isValidDirectory(directoryPath);
             Ui::clear();
 
-            // If not valid directory, force user to re-enter.
+            // If not a valid directory, force user to re-enter.
             while (!isValidDir) {
                 Ui::uiLogo();
                 std::cout << "Invalid directory!" << std::endl;
@@ -22,7 +24,7 @@ int main() {
                 Ui::clear();
             }
 
-            vector<string> jackFiles = File::getJackFiles(directoryPath);
+            std::vector<std::string> jackFiles = File::getJackFiles(directoryPath);
 
             if (jackFiles.empty()) {
                 std::cerr << "No .jack files found in the directory!" << std::endl;
@@ -35,10 +37,11 @@ int main() {
                 std::cout << "Files successfully opened" << std::endl;
 
                 for (const auto& file : jackFiles) {
-                    string xmlFileName = file + ".xml";
+                    std::filesystem::path filePath(file);
+                    filePath.replace_extension(".xml");
+                    std::string xmlFileName = filePath.string();
 
                     // Converting each .jack file to corresponding .xml file
-                    std::cout << "Converting " << file << " to " << xmlFileName << std::endl;
                     jackTokenizer.convertFile(file, xmlFileName);
 
                     std::cout << "Finished converting " << file << " to " << xmlFileName << "!" << std::endl;

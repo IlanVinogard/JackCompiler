@@ -133,6 +133,7 @@
     <ClCompile Include="JackAnalyzer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CompilationEngine.h" />
     <ClInclude Include="JackTokenizer.h" />
     <ClInclude Include="Utility.h" />
   </ItemGroup>
@@ -146,7 +147,7 @@
     <None Include="Tests\Square\SquareGame.jack" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="Tests\ArrayTest\Main.jack.xml" />
+    <Xml Include="Tests\ArrayTest\Main.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
